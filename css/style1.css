@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+body {
+  font-family : serif, sans-serif;
+}
+
+#content{
+      margin-left:auto;
+      margin-right:auto;
+      max-width: 70%;
+      background: #FFF;
+      padding: 30px 30px 20px 30px;
+      box-shadow: rgba(187, 187, 187, 1) 0 0px 20px -1px;
+      -webkit-box-shadow: rgba(187, 187, 187, 1) 0 0px 10px -1px;
+      font: 12px Arial, Helvetica, sans-serif;
+      color: #666;
+      border-radius: 5px;
+      -webkit-border-radius: 5px;
+
+	}
+table{
+  width: 100%;
+  float: center;
+  table-layout: fixed;
+  white-space: nowrap;
+}
+
+th{
+  float: left;
+}
+
+
+
+#cloned label{
+  position: static;
+  padding-right: 150px;
+}
+
+input[type="text"],input[type="email"],input[type="tel"], input[type="date"],input[type="time"],input[type="number"],input[type="checkbox"], textarea, select{
+    color: #555;
+    padding: 3px 0px 3px 5px;
+    margin-top: 2px;
+    margin-right: 6px;
+    margin-bottom: 16px;
+    border: 1px solid #e5e5e5;
+    background: #fbfbfb;
+    height: 20px;
+    line-height:15px;
+    outline: 0;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+    box-shadow: inset 1px 1px 2px rgba(200,200,200,0.2);
+}
+textarea{
+    height:auto;
+    padding: 5px 0px 0px 5px;
+}
+
+select{
+  width: 32%;
+
+}
+input[type="time"]{
+  width: 30%;
+}
+h1{
+  font: 24px "Trebuchet MS", Arial, Helvetica, sans-serif;
+  text-align: center;
+      padding: 0px 0px 10px 40px;
+      display: block;
+      border-bottom: 1px solid #F5F5F5;
+      margin: -10px -30px 10px -30px;
+      color: #969696;
+	}
+
+h3{
+	font-weight: normal;
+	font-family: 'lucida grande',tahoma,verdana,arial,sans-serif;
+	font-size:18px;
+
+	}
+
+.error{
+  color:red;
+  }
+input.error { border: 1px solid red; }
+label.error {
+  position: static;
+	background: url('/Users/Manal/Desktop/Form/images/unchecked.gif') no-repeat;
+	padding-left: 16px;
+	margin-left: .3em;
+
+}
+#add-del-buttons{
+text-align: center;
+}
+#submit{text-align: center;
+padding-top: 10px;}

@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script src="js/jquery-1.12.0.js"></script>
+<script src="js/dup.js" type="text/javascript"></script>
+<!-- <script src="js/jquery.validate.js" type="text/javascript"></script>
+<script src="js/additional-methods.js" type="text/javascript"></script> -->
+<link rel="stylesheet" type="text/css" href="css/style1.css">
+<!--Conditional show fields based on option Affilate/Non-affiliate personnel-->
+<script>
+function yesnoCheck() {
+    if (document.getElementById('affil').checked) {
+        document.getElementById('ifYes').style.display = 'block';
+		document.getElementById('ifNo').style.display = 'none';
+
+    }
+    else if(document.getElementById('nonAffil').checked){
+	document.getElementById('ifNo').style.display = 'block';
+	document.getElementById('ifYes').style.display = 'none';
+}
+}
+</script>
+<!--Auto same fields fill-->
+<script>
+$().ready(function() {
+	$('.sameInfo').change(function(){
+
+    if ($('.sameInfo').is(':checked') == true){
+      $('#cPerson').val(document.getElementById('name').value).prop('disabled', true);
+      $('#cTel').val(document.getElementById('contactNum').value).prop('disabled', true);
+      $('#cEmail').val(document.getElementById('email').value).prop('disabled', true);
+      console.log('checked');
+   } else {
+     $('#cPerson').val('').prop('disabled', false);
+     $('#cTel').val('').prop('disabled', false);
+     $('#cEmail').val('').prop('disabled', false);
+     console.log('unchecked');
+   }
+
+});
+});
+</script>
+<title>Event Fulfillment Request Form</title>
+</head>
+<body>
+  <div id="header">
+  </div>
+  <div id="content">
+    <h1>Event Fulfillment Request Form</h1>
+    <!--Beginning of form-->
+    <form action="" method="post" id="newEvent" name="newEvent">
+      <table>
+        <th colspan="2"><h3>Contact Information</h3></th>
+        <tr><td>  <label>Name:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+        <td>  <input type="text" name="name" id="name" required/>
+
+        </td></tr>
+        <tr><td>  <label>Contact number:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+          <td><input type="tel" name="contactNum" id="contactNum"  required/>
+        </td></tr>
+      <tr><td>   <label>Email:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+      <td>  <input type="email" name="email" id="email" required/>
+      </td></tr>
+        <th colspan="2"><h3>Billing Information</h3></th>
+      <tr><td>  <label>Please choose:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+      <td class="container">
+        <span><input type="radio" onclick="javascript:yesnoCheck();" name="affilCheck" id="nonAffil" value="nonAffil" /> Not affiliated with xyz</span>
+      	<span><input type="radio" onclick="javascript:yesnoCheck();" name="affilCheck" id="affil" value="affil" />Affiliated with xyz</span>
+      </td></tr>
+<tr><td colspan="2">
+          <div id="ifNo" style="display:none">
+            <table>
+        <tr><td>  <label>Organization:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+        <td>  <input type="text" name="org" id="org" required/>
+        </td></tr>
+        <tr><td>  <label>Street Address:</label></td>
+        <td>  <input type="text" name="address" id="address"/></td></tr>
+
+        <tr><td>  <label>City:</label></td>
+          <td><input type="text" name="city" id="city"/></td></tr>
+
+          <tr><td><label>State:</label></td>
+        <td>  <input type="text" name="state" id="state" maxlength="2"/></td></tr>
+
+          <tr><td><label>Zip code:</label></td>
+        <td>  <input type="number" name="zipCode" id="zipCode"/>
+        </td></tr>
+      </table>
+      </div>
+    </tr></td>
+    <tr><td colspan="2">
+          <div id="ifYes" style="display:none">
+            <table>
+          <tr><td><label>Account number:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+        <td>  <input type="number" name="acctNum" id="acctNum" required/>
+        </td></tr>
+        <tr><td>  <label>Mailing address:</label></td>
+        <td>  <input type="text" name="mailingAddress" id="mailingAddress"/></td></tr>
+      </table>
+      </div>
+    </td></td>
+      <tr><td>
+        <label>Event title:</label></td>
+      <td>  <input type="text" name="eventTitle" id="eventTitle" /></td></tr>
+      <tr><td>  <label>On-site Coordinator or Contact Person:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+      <td>  <input type="text" name="cPerson" id="cPerson" required/>
+        <span><input type="checkbox" class="sameInfo"/>Same as contact info</span>
+      </td></tr>
+      <tr><td>  <label>Telephone:</label></td>
+      <td>	<input type="tel" name="cTel" id="cTel"/></td></tr>
+    <tr><td>  <label>Email Address:</label></td>
+      <td><input type="email" name="cEmail" id="cEmail"/></td></tr>
+      <tr><td colspan="2">
+
+      <!--cloned input start-->
+
+        <div id="session1" class="clonedInput">
+          <table id="cloned">
+          <th colspan="2"><h3 id="sessionRef" name="sessionRef" class="heading_ref">Session 1</h3></th>
+        <tr><td>  <label>Day:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+          <td><select id="day" name="day" class="day" required >
+            <option value="">Select</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+        </td></tr>
+      <tr><td>  <label>Date:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+      <td>  <input  type="date" name="date" class="date" id="date" placeholder="yyyy/mm/dd" required />
+      </td></tr>
+      <tr><td>  <label>Start Time:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+      <td>  <input type="time" id="start_time" name="start_time" class="start_time" required/>
+      </td></tr>
+      <tr><td>  <label>End Time:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+        <td><input type="time" id="end_time" name="end_time" class="end_time" required/>
+        </td></tr>
+    <tr><td>  <label>Venue:&nbsp;<abbr title="required" style="color:red">*</abbr></label></td>
+    <td>  <select id="venue" name="venue" class="venue" required>
+           	<option value="">Select</option>
+            <option value="hawthorneTheatre">Hawthorne Theatre</option>
+            <option value="dougFirLounge">Doug Fir Lounge</option>
+            <option value="mcMenaminsCrystalBallroom">McMenamins Crystal Ballroom</option>
+            <option value="modeCenter">Moda Center</option>
+          </select>
+        </td></tr>
+      <tr><td colspan="2">  Please check any personal devices you intend to use:<br/>
+        <input type="checkbox" value="pc" id="pc" name="pc" class="pc"/>PC Laptop<br/>
+        <input type="checkbox" value="mac" id="mac" name="mac" class="mac"/>Mac Laptop<br/>
+        <input type="checkbox" value="tablet_smartphone" id="tablet_smartphone" name="tablet_smartphone" class="tablet_smartphone" />Tablet/Smartphone<br/>
+        <input type="checkbox" value="dev_wireless" id="dev_wireless" name="dev_wireless" class="dev_wireless" />Device(s) that require a wireless connection<br/>
+      </td></tr>
+
+  <tr><td>      	<label>Comments:</label></td>
+        <td>	<textarea cols="40" row="4" name="comment" id="comment" class="comment"></textarea>
+        </td></tr>
+      </table>
+    </div>
+    </td></tr>
+          <!--cloned input end-->
+          <!-- ADD - DELETE BUTTONS -->
+        <tr><td colspan="2">  <div id="add-del-buttons">
+              <input type="button" id="btnAdd" value="[ + ] add an additional session">
+              <input type="button" id="btnDel" value="[ - ] remove last added session">
+          </div>
+</td></tr>
+          <tr><td colspan="2" id="submit"><input type="submit" value"Submit"></td></tr>
+      </div>
+    </form>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+    <script>
+    	$.validator.setDefaults({
+    		submitHandler: function() {
+    			alert("Your request have been submitted, our team will contact you shortly!");
+          console.log('submitted');
+    		}
+    	});
+
+    	$().ready(function() {
+    		$("#newEvent").validate({
+        rules: {
+          name: 'required',
+          contactNum: {
+            required: true,
+            phoneUS: true
+          },
+          email:{
+  					required: true,
+  					email: true
+  				},
+          affilCheck: 'required',
+          org: 'required',
+          acctNum: 'required',
+          cPerson:'required',
+          cEmail: {
+  					required: true,
+  					email: true
+  				},
+          cTel: {
+            required: true,
+            phoneUS: true
+          },
+          date:{
+  				required: true,
+  				dateISO: true
+  			  },
+          day: 'required',
+          start_time: 'required',
+          end_time: 'required',
+          venue: 'required',
+
+        },
+        errorPlacement: function(error, element)
+       {
+           if ( element.is(":radio") )
+           {
+               error.appendTo( element.parents('.container') );
+           }
+           else
+           { // This is the default behavior
+               error.insertAfter( element );
+           }
+        },
+
+        messages: {
+  				name: "Please enter your name",
+          contactNum: "Please enter a valid US phone number",
+          email: "Please enter a valid email address",
+          affilCheck: "Please select an option",
+          cEmail: "Please enter a valid email address",
+
+        }
+      });
+    });
+    </script>
+  </div>
+</body>
+</html>
