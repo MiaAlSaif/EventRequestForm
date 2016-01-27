@@ -1,6 +1,6 @@
 ## Synopsis
 
-A dynamic web application that lets users submit up to 5 requests for events reservations.
+A dynamic web application that lets users submit up to 5 requests for events reservations.  The form validates all required fields before submitting a request.
 
 ## Technologies Used
 
